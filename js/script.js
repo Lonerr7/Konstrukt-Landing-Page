@@ -19,10 +19,10 @@ const allSections = document.querySelectorAll('.section');
 
 //* Hide nav
 
-if (window.visualViewport.width > 524) {
-    headerMenu.classList.remove('header__menu_invisible');
+if (window.visualViewport.width < 524) {
+    headerMenu.classList.add('header__menu_invisible');
 } else {
-    
+    headerMenu.classList.remove('header__menu_invisible');
 }
 
 //===========================================================
