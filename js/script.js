@@ -21,6 +21,8 @@ const allSections = document.querySelectorAll('.section');
 
 if (window.visualViewport.width > 524) {
     headerMenu.classList.remove('header__menu_invisible');
+} else {
+    
 }
 
 //===========================================================

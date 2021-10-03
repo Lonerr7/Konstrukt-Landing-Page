@@ -83,6 +83,7 @@ body{
     font-family: $fontFamily;
     background-color: $background;
     position: relative;
+    scroll-behavior: smooth;
 }
 
 .wrapper{
