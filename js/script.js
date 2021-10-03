@@ -25,6 +25,12 @@ if (window.visualViewport.width < 524) {
     headerMenu.classList.remove('header__menu_invisible');
 }
 
+window.addEventListener('resize', function(event) {
+    if (window.visualViewport.width > 524) {
+        headerMenu.classList.remove('header__menu_invisible');
+    }
+}, true);
+
 //===========================================================
 
 //* Smooth scroll down
