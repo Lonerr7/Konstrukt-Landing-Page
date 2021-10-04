@@ -12,7 +12,7 @@ const body = document.querySelector('body');
 // Smooth scrolling
 const linkDown = document.querySelector('.section-hero__scroll');
 const section1 = document.querySelector('.section-story');
-const navLinks = document.querySelectorAll('.header__link');
+const navLinks = document.querySelector('.header__list');
 const allSections = document.querySelectorAll('.section');
 
 //===========================================================
@@ -58,30 +58,40 @@ window.addEventListener('resize', function(event) {
 //     }
 // });
 
-// From hero link
-linkDown.addEventListener('click', onMenuLinkClick);
+// // From hero link
+// linkDown.addEventListener('click', onMenuLinkClick);
 
-//  From links
-navLinks.forEach(link => {
-    link.addEventListener('click', onMenuLinkClick);
+// //  From links
+// navLinks.forEach(link => {
+//     link.addEventListener('click', onMenuLinkClick);
+// });
+
+// function onMenuLinkClick(e) {
+//     e.preventDefault();
+
+//     const menuLink = e.target;
+
+//     if (menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
+//         const gotoBlock = document.querySelector(menuLink.dataset.goto);
+//         const gotoBlockValue = gotoBlock.getBoundingClientRect().top + window.scrollY;
+//         // console.log(gotoBlockValue);
+
+//         window.scrollTo({
+//             top: gotoBlockValue,
+//             behavior: "smooth",
+//         });
+//     }
+
+//     if (burgerIcon.classList.contains('header__burger-icon_active')) {
+//         body.classList.remove('lock');
+//         headerMenu.classList.remove('header__menu_active');
+//         burgerIcon.classList.remove('header__burger-icon_active');
+//     }
+// }
+
+const scroll = new SmoothScroll('.header__list a[href*="#"]', {
+    speed: 800
 });
-
-function onMenuLinkClick(e) {
-    e.preventDefault();
-
-    const menuLink = e.target;
-
-    if (menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
-        const gotoBlock = document.querySelector(menuLink.dataset.goto);
-        const gotoBlockValue = gotoBlock.getBoundingClientRect().top + window.scrollY;
-        // console.log(gotoBlockValue);
-
-        window.scrollTo({
-            top: gotoBlockValue,
-            behavior: "smooth",
-        });
-    }
-}
 
 //===========================================================
 
@@ -101,3 +111,12 @@ burgerIcon.addEventListener('click', (e) => {
     headerMenu.classList.toggle('header__menu_active');
 });
 
+navLinks.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (burgerIcon.classList.contains('header__burger-icon_active')) {
+        body.classList.remove('lock');
+        headerMenu.classList.remove('header__menu_active');
+        burgerIcon.classList.remove('header__burger-icon_active');
+    }
+})
