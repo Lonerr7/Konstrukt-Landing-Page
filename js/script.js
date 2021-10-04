@@ -89,8 +89,12 @@ window.addEventListener('resize', function(event) {
 //     }
 // }
 
-const scroll = new SmoothScroll('.header__list a[href*="#"]', {
+const scrollFormNav = new SmoothScroll('.header__list a[href*="#"]', {
     speed: 800
+});
+
+const scrollFromLink = new SmoothScroll('.section-hero a[href*="#"]', {
+    speed: 800,
 });
 
 //===========================================================
